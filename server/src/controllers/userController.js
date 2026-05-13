@@ -2,9 +2,16 @@ const User = require('../models/User');
 
 // @desc    Get user profile
 // @route   GET /api/users/profile
-exports.getProfile = async (req, res) => {
-  const user = await User.findById(req.user.id);
-  res.status(200).json({ success: true, user });
+exports.getProfile = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    res.status(200).json({ success: true, user });
+  } catch (error) {
+    next(error);
+  }
 };
 
 // @desc    Update user profile
@@ -147,7 +154,7 @@ exports.getRecommendedFreelancers = async (req, res, next) => {
       // Skill match score (0-50 points)
       const matchingSkills = f.skills.filter((skill) =>
         project.skillsRequired.some(
-          (req) => req.toLowerCase() === skill.toLowerCase()
+          (requiredSkill) => requiredSkill.toLowerCase() === skill.toLowerCase()
         )
       );
       score += (matchingSkills.length / Math.max(project.skillsRequired.length, 1)) * 50;

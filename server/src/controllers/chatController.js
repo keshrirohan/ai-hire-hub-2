@@ -77,16 +77,19 @@ exports.sendMessage = async (req, res, next) => {
 exports.getConversations = async (req, res, next) => {
   try {
     const userId = req.user.id;
+    const mongoose = require('mongoose');
+    const userObjectId = mongoose.Types.ObjectId.createFromHexString(userId);
 
     const conversations = await Message.aggregate([
       {
         $match: {
           $or: [
-            { senderId: require('mongoose').Types.ObjectId.createFromHexString(userId) },
-            { receiverId: require('mongoose').Types.ObjectId.createFromHexString(userId) },
+            { senderId: userObjectId },
+            { receiverId: userObjectId },
           ],
         },
       },
+      // Sort BEFORE grouping so $first picks the latest message
       { $sort: { createdAt: -1 } },
       {
         $group: {
@@ -97,12 +100,7 @@ exports.getConversations = async (req, res, next) => {
               $cond: [
                 {
                   $and: [
-                    {
-                      $eq: [
-                        '$receiverId',
-                        require('mongoose').Types.ObjectId.createFromHexString(userId),
-                      ],
-                    },
+                    { $eq: ['$receiverId', userObjectId] },
                     { $eq: ['$isRead', false] },
                   ],
                 },
@@ -116,9 +114,8 @@ exports.getConversations = async (req, res, next) => {
       { $sort: { 'lastMessage.createdAt': -1 } },
     ]);
 
-    // Populate user info
-    const Message_model = require('../models/Message');
-    const populatedConvs = await Message_model.populate(conversations, [
+    // Populate user info using the already-imported Message model
+    const populatedConvs = await Message.populate(conversations, [
       { path: 'lastMessage.senderId', select: 'name avatar isOnline' },
       { path: 'lastMessage.receiverId', select: 'name avatar isOnline' },
     ]);

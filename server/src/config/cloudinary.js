@@ -15,12 +15,12 @@ const upload = multer({
   storage,
   limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
   fileFilter: (req, file, cb) => {
-    const allowed = /jpg|jpeg|png|gif|pdf|doc|docx|zip/;
-    const ext = file.originalname.split('.').pop()?.toLowerCase() || '';
-    if (allowed.test(ext)) {
+    const allowedExtensions = new Set(['jpg', 'jpeg', 'png', 'gif', 'pdf', 'doc', 'docx', 'zip']);
+    const ext = (file.originalname.split('.').pop() || '').toLowerCase();
+    if (allowedExtensions.has(ext)) {
       cb(null, true);
     } else {
-      cb(new Error('File type not allowed'));
+      cb(new Error(`File type ".${ext}" is not allowed. Allowed: jpg, jpeg, png, gif, pdf, doc, docx, zip`));
     }
   },
 });

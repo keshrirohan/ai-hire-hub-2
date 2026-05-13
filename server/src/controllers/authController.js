@@ -113,10 +113,17 @@ exports.logout = async (req, res) => {
 
 // @desc    Get current logged in user
 // @route   GET /api/auth/me
-exports.getMe = async (req, res) => {
-  const user = await User.findById(req.user.id);
-  res.status(200).json({
-    success: true,
-    user,
-  });
+exports.getMe = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  } catch (error) {
+    next(error);
+  }
 };

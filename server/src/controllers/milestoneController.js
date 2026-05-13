@@ -3,6 +3,7 @@ const User = require('../models/User');
 const Transaction = require('../models/Transaction');
 const Notification = require('../models/Notification');
 const aiService = require('../services/aiService');
+const { uploadToCloudinary } = require('../config/cloudinary');
 
 // @desc    Submit milestone
 // @route   POST /api/milestones/submit
@@ -28,15 +29,23 @@ exports.submitMilestone = async (req, res, next) => {
       return res.status(400).json({ success: false, message: 'Milestone cannot be submitted' });
     }
 
-    // Handle file uploads
-    const submissionFiles = req.files
-      ? req.files.map((f) => ({
-          url: f.path,
-          publicId: f.filename,
-          name: f.originalname,
-          type: f.mimetype,
-        }))
-      : [];
+    // Handle file uploads — multer uses memoryStorage so we upload buffers to Cloudinary
+    const submissionFiles = [];
+    if (req.files && req.files.length > 0) {
+      for (const f of req.files) {
+        try {
+          const result = await uploadToCloudinary(f.buffer, 'ai-hire-hub/submissions');
+          submissionFiles.push({
+            url: result.secure_url,
+            publicId: result.public_id,
+            name: f.originalname,
+            type: f.mimetype,
+          });
+        } catch (uploadErr) {
+          console.error('File upload to Cloudinary failed:', uploadErr.message);
+        }
+      }
+    }
 
     milestone.submissionFiles = submissionFiles;
     milestone.submissionNote = submissionNote || '';
@@ -194,7 +203,7 @@ exports.activateMilestone = async (req, res, next) => {
 
     await Notification.create({
       userId: project.freelancerId,
-      type: 'milestone_submitted',
+      type: 'milestone_activated',
       title: 'New Milestone Activated',
       message: `"${milestone.title}" is now active. Start working!`,
       data: { projectId, milestoneId },
