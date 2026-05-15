@@ -48,13 +48,13 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen hero-gradient flex items-center justify-center p-6">
-      <div className="fixed top-20 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-20 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed top-20 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-20 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
               <Bot className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold gradient-text">AI Hire Hub</span>
@@ -108,7 +108,7 @@ export default function LoginPage() {
               type="submit"
               disabled={isLoading}
               id="login-btn"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold hover:from-purple-500 hover:to-indigo-500 transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-purple-500/25 mt-2"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-semibold hover:from-cyan-500 hover:to-sky-500 transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/25 mt-2"
             >
               {isLoading ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
@@ -129,7 +129,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-slate-500 mt-6">
             Don&apos;t have an account?{' '}
-            <Link href="/register" className="text-purple-400 hover:text-purple-300 transition-colors font-medium">
+            <Link href="/register" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
               Sign up
             </Link>
           </p>

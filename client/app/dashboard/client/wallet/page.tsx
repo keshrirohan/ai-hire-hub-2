@@ -125,7 +125,7 @@ export default function ClientWalletPage() {
       </div>
 
       {/* Balance Card */}
-      <div className="glass-card rounded-2xl p-6 bg-gradient-to-br from-violet-600/20 to-cyan-600/20 border border-violet-500/30">
+      <div className="glass-card rounded-2xl p-6 bg-gradient-to-br from-cyan-600/20 to-cyan-600/20 border border-cyan-500/30">
         <div className="flex items-start justify-between flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-2 text-gray-400 mb-2">
@@ -151,7 +151,7 @@ export default function ClientWalletPage() {
                   onClick={() => setAddAmount(amt.toString())}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border ${
                     addAmount === amt.toString()
-                      ? 'bg-violet-600 text-white border-violet-500'
+                      ? 'bg-cyan-600 text-white border-cyan-500'
                       : 'bg-white/5 text-gray-300 border-white/10 hover:border-white/20'
                   }`}
                 >
@@ -192,7 +192,7 @@ export default function ClientWalletPage() {
       <div className="glass-card rounded-xl p-5">
         <h2 className="text-lg font-semibold text-white mb-4">Transaction History</h2>
         {loading ? (
-          <div className="flex justify-center py-8"><Loader2 className="w-6 h-6 animate-spin text-violet-400" /></div>
+          <div className="flex justify-center py-8"><Loader2 className="w-6 h-6 animate-spin text-cyan-400" /></div>
         ) : transactions.length === 0 ? (
           <div className="text-center py-10">
             <Wallet className="w-12 h-12 text-gray-600 mx-auto mb-3" />
@@ -236,3 +236,4 @@ export default function ClientWalletPage() {
     </div>
   );
 }
+

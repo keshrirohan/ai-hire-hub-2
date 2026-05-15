@@ -13,15 +13,15 @@ const features = [
     icon: Bot,
     title: 'AI Project Assistant',
     description: 'Chat with our AI to plan your project, generate milestones, and get budget estimates automatically.',
-    gradient: 'from-purple-500/20 to-indigo-500/20',
-    border: 'border-purple-500/30',
+    gradient: 'from-cyan-500/20 to-sky-500/20',
+    border: 'border-cyan-500/30',
   },
   {
     icon: Users,
     title: 'Smart Freelancer Matching',
     description: 'AI analyzes skills, ratings, and experience to recommend the perfect freelancers for your project.',
-    gradient: 'from-blue-500/20 to-cyan-500/20',
-    border: 'border-blue-500/30',
+    gradient: 'from-sky-500/20 to-cyan-400/20',
+    border: 'border-sky-500/30',
   },
   {
     icon: Shield,
@@ -41,15 +41,15 @@ const features = [
     icon: MessageSquare,
     title: 'Real-time Chat',
     description: 'Live messaging with file sharing, typing indicators, and project-specific chat rooms.',
-    gradient: 'from-pink-500/20 to-rose-500/20',
-    border: 'border-pink-500/30',
+    gradient: 'from-teal-500/20 to-cyan-500/20',
+    border: 'border-teal-500/30',
   },
   {
     icon: DollarSign,
     title: 'Instant Payments',
     description: 'Add credits via Razorpay and freelancers receive payments instantly upon milestone approval.',
-    gradient: 'from-violet-500/20 to-purple-500/20',
-    border: 'border-violet-500/30',
+    gradient: 'from-cyan-600/20 to-sky-500/20',
+    border: 'border-cyan-600/30',
   },
 ];
 
@@ -158,7 +158,7 @@ export default function LandingPage() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
               <Bot className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold gradient-text">AI Hire Hub</span>
@@ -180,7 +180,7 @@ export default function LandingPage() {
             </Link>
             <Link
               href="/register"
-              className="text-sm font-medium px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-500 hover:to-indigo-500 transition-all duration-200 shadow-lg shadow-purple-500/25"
+              className="text-sm font-medium px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-sky-600 text-white hover:from-cyan-500 hover:to-sky-500 transition-all duration-200 shadow-lg shadow-cyan-500/25"
             >
               Get Started
             </Link>
@@ -191,12 +191,12 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative">
         {/* Background orbs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-40 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-40 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto text-center relative">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-purple-500/30 text-sm text-purple-300 mb-8 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cyan-500/30 text-sm text-cyan-300 mb-8 animate-fade-in">
             <Zap className="w-4 h-4" />
             <span>Powered by Groq AI (Llama 3.3 70B)</span>
             <ChevronRight className="w-4 h-4" />
@@ -220,7 +220,7 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up">
             <Link
               href="/register?role=client"
-              className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-lg hover:from-purple-500 hover:to-indigo-500 transition-all duration-200 shadow-2xl shadow-purple-500/30 glow-purple"
+              className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-semibold text-lg hover:from-cyan-500 hover:to-sky-500 transition-all duration-200 shadow-2xl shadow-cyan-500/30 glow-cyan"
             >
               <Bot className="w-5 h-5" />
               Start with AI
@@ -267,7 +267,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center shrink-0">
                   <Bot className="w-4 h-4 text-white" />
                 </div>
                 <div className="ai-bubble rounded-2xl rounded-tl-sm px-4 py-3 text-sm text-slate-200 max-w-lg">
@@ -280,7 +280,7 @@ export default function LandingPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-3 pt-3 border-t border-white/10 text-xs text-purple-300">
+                  <div className="mt-3 pt-3 border-t border-white/10 text-xs text-cyan-300">
                     Total Budget: ₹65,000 • Timeline: 9 weeks • 5 Milestones
                   </div>
                 </div>
@@ -332,10 +332,10 @@ export default function LandingPage() {
             {steps.map((step, i) => (
               <div key={i} className="text-center">
                 <div className="relative inline-block mb-6">
-                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-purple-500/20 to-indigo-500/20 border border-purple-500/30 flex items-center justify-center mx-auto">
-                    <step.icon className="w-8 h-8 text-purple-400" />
+                  <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-500/20 to-sky-500/20 border border-cyan-500/30 flex items-center justify-center mx-auto">
+                    <step.icon className="w-8 h-8 text-cyan-400" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center text-xs font-black text-white">
+                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-cyan-600 to-sky-600 flex items-center justify-center text-xs font-black text-white">
                     {step.step}
                   </div>
                 </div>
@@ -365,7 +365,7 @@ export default function LandingPage() {
                 </div>
                 <p className="text-slate-300 text-sm mb-6 leading-relaxed">&quot;{t.text}&quot;</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-sm font-bold text-white">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center text-sm font-bold text-white">
                     {t.avatar}
                   </div>
                   <div>
@@ -394,12 +394,12 @@ export default function LandingPage() {
                 key={i}
                 className={`rounded-2xl p-6 relative ${
                   plan.highlighted
-                    ? 'bg-gradient-to-br from-purple-600/20 to-indigo-600/20 border-2 border-purple-500/50 glow-purple'
+                    ? 'bg-gradient-to-br from-cyan-600/20 to-sky-600/20 border-2 border-cyan-500/50 glow-cyan'
                     : 'glass border border-white/10'
                 }`}
               >
                 {plan.highlighted && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-xs font-bold text-white">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-cyan-600 to-sky-600 text-xs font-bold text-white">
                     MOST POPULAR
                   </div>
                 )}
@@ -428,7 +428,7 @@ export default function LandingPage() {
                   href="/register"
                   className={`w-full block text-center py-3 rounded-xl font-semibold text-sm transition-all duration-200 ${
                     plan.highlighted
-                      ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-500 hover:to-indigo-500'
+                      ? 'bg-gradient-to-r from-cyan-600 to-sky-600 text-white hover:from-cyan-500 hover:to-sky-500'
                       : 'glass border border-white/20 text-white hover:bg-white/10'
                   }`}
                 >
@@ -443,9 +443,9 @@ export default function LandingPage() {
       {/* CTA Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="glass-strong rounded-3xl p-12 border border-purple-500/30 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-indigo-500/10 pointer-events-none" />
-            <Bot className="w-16 h-16 text-purple-400 mx-auto mb-6 animate-float" />
+          <div className="glass-strong rounded-3xl p-12 border border-cyan-500/30 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-sky-500/10 pointer-events-none" />
+            <Bot className="w-16 h-16 text-cyan-400 mx-auto mb-6 animate-float" />
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
               Ready to Build Something
               <span className="gradient-text"> Amazing?</span>
@@ -456,7 +456,7 @@ export default function LandingPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/register?role=client"
-                className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold hover:from-purple-500 hover:to-indigo-500 transition-all duration-200 shadow-2xl shadow-purple-500/30"
+                className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-semibold hover:from-cyan-500 hover:to-sky-500 transition-all duration-200 shadow-2xl shadow-cyan-500/30"
               >
                 Start as Client <ArrowRight className="w-5 h-5" />
               </Link>
@@ -476,7 +476,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
                 <Bot className="w-4 h-4 text-white" />
               </div>
               <span className="text-lg font-bold gradient-text">AI Hire Hub</span>

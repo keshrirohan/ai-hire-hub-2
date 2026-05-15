@@ -62,14 +62,14 @@ function RegisterContent() {
   return (
     <div className="min-h-screen hero-gradient flex items-center justify-center p-6">
       {/* Background orbs */}
-      <div className="fixed top-20 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-20 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-20 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-md relative">
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
               <Bot className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold gradient-text">AI Hire Hub</span>
@@ -86,7 +86,7 @@ function RegisterContent() {
               onClick={() => handleRoleSelect('client')}
               className={`p-4 rounded-xl border transition-all duration-200 text-left ${
                 selectedRole === 'client'
-                  ? 'bg-purple-500/20 border-purple-500/50 text-purple-300'
+                  ? 'bg-cyan-500/20 border-cyan-500/50 text-cyan-300'
                   : 'glass border-white/10 text-slate-400 hover:border-white/20'
               }`}
             >
@@ -99,7 +99,7 @@ function RegisterContent() {
               onClick={() => handleRoleSelect('freelancer')}
               className={`p-4 rounded-xl border transition-all duration-200 text-left ${
                 selectedRole === 'freelancer'
-                  ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-300'
+                  ? 'bg-sky-500/20 border-sky-500/50 text-sky-300'
                   : 'glass border-white/10 text-slate-400 hover:border-white/20'
               }`}
             >
@@ -167,7 +167,7 @@ function RegisterContent() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold hover:from-purple-500 hover:to-indigo-500 transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-purple-500/25 mt-2"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-semibold hover:from-cyan-500 hover:to-sky-500 transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/25 mt-2"
             >
               {isLoading ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
@@ -181,7 +181,7 @@ function RegisterContent() {
 
           <p className="text-center text-sm text-slate-500 mt-6">
             Already have an account?{' '}
-            <Link href="/login" className="text-purple-400 hover:text-purple-300 transition-colors font-medium">
+            <Link href="/login" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
               Sign in
             </Link>
           </p>
@@ -193,7 +193,7 @@ function RegisterContent() {
 
 export default function RegisterPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen hero-gradient flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-purple-400" /></div>}>
+    <Suspense fallback={<div className="min-h-screen hero-gradient flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-cyan-400" /></div>}>
       <RegisterContent />
     </Suspense>
   );

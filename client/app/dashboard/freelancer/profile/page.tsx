@@ -72,10 +72,10 @@ export default function ProfilePage() {
       <div className="glass-card rounded-xl p-6">
         <div className="flex items-start gap-5">
           <div className="relative">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-violet-600 to-cyan-600 flex items-center justify-center text-white text-3xl font-bold">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-600 to-cyan-600 flex items-center justify-center text-white text-3xl font-bold">
               {user?.name?.[0] || 'U'}
             </div>
-            <button className="absolute -bottom-1 -right-1 w-7 h-7 bg-violet-600 rounded-full flex items-center justify-center border-2 border-[hsl(var(--background))] hover:bg-violet-500 transition-colors">
+            <button className="absolute -bottom-1 -right-1 w-7 h-7 bg-cyan-600 rounded-full flex items-center justify-center border-2 border-[hsl(var(--background))] hover:bg-cyan-500 transition-colors">
               <Camera className="w-3.5 h-3.5 text-white" />
             </button>
           </div>
@@ -89,12 +89,12 @@ export default function ProfilePage() {
                 <span className="text-xs text-gray-400">({user?.totalRatings || 0} reviews)</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Briefcase className="w-4 h-4 text-violet-400" />
+                <Briefcase className="w-4 h-4 text-cyan-400" />
                 <span className="text-sm text-gray-300">{user?.completedProjects || 0} completed</span>
               </div>
             </div>
           </div>
-          <div className="px-3 py-1.5 rounded-lg bg-violet-500/20 text-violet-300 text-sm border border-violet-500/30 capitalize">
+          <div className="px-3 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 text-sm border border-cyan-500/30 capitalize">
             {user?.role}
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function ProfilePage() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="glass-card rounded-xl p-6 space-y-4">
           <h3 className="font-semibold text-white flex items-center gap-2">
-            <User className="w-4 h-4 text-violet-400" /> Basic Information
+            <User className="w-4 h-4 text-cyan-400" /> Basic Information
           </h3>
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-1.5">Full Name *</label>
@@ -153,7 +153,7 @@ export default function ProfilePage() {
             </div>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
-                <span key={skill} className="flex items-center gap-1.5 text-sm px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                <span key={skill} className="flex items-center gap-1.5 text-sm px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                   {skill}
                   <button type="button" onClick={() => removeSkill(skill)} className="hover:text-red-400 transition-colors">
                     <X className="w-3 h-3" />
@@ -195,3 +195,4 @@ export default function ProfilePage() {
     </div>
   );
 }
+

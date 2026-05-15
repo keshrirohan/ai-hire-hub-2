@@ -134,7 +134,7 @@ export default function AIChatPage() {
     return content
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(/`(.*?)`/g, '<code class="bg-white/10 px-1.5 py-0.5 rounded text-violet-300 text-sm font-mono">$1</code>')
+      .replace(/`(.*?)`/g, '<code class="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 text-sm font-mono">$1</code>')
       .replace(/\n/g, '<br>');
   };
 
@@ -143,7 +143,7 @@ export default function AIChatPage() {
       {/* Header */}
       <div className="glass-card rounded-xl p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600 to-cyan-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-600 to-cyan-600 flex items-center justify-center">
             <Bot className="w-5 h-5 text-white" />
           </div>
           <div>
@@ -172,7 +172,7 @@ export default function AIChatPage() {
         {messages.length === 1 && (
           <div className="glass-card rounded-xl p-4">
             <div className="flex items-center gap-2 mb-3 text-sm text-gray-400">
-              <Sparkles className="w-4 h-4 text-violet-400" />
+              <Sparkles className="w-4 h-4 text-cyan-400" />
               Try one of these ideas:
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -180,7 +180,7 @@ export default function AIChatPage() {
                 <button
                   key={s}
                   onClick={() => sendMessage(s)}
-                  className="text-left text-sm p-3 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white border border-white/5 hover:border-violet-500/30 transition-all"
+                  className="text-left text-sm p-3 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white border border-white/5 hover:border-cyan-500/30 transition-all"
                 >
                   {s}
                 </button>
@@ -197,7 +197,7 @@ export default function AIChatPage() {
             {/* Avatar */}
             <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${
               message.role === 'assistant'
-                ? 'bg-gradient-to-br from-violet-600 to-cyan-600'
+                ? 'bg-gradient-to-br from-cyan-600 to-cyan-600'
                 : 'bg-gradient-to-br from-gray-600 to-gray-700'
             }`}>
               {message.role === 'assistant' ? (
@@ -212,17 +212,17 @@ export default function AIChatPage() {
               <div className={`rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                 message.role === 'assistant'
                   ? 'glass-card text-gray-100'
-                  : 'bg-gradient-to-r from-violet-600 to-violet-700 text-white'
+                  : 'bg-gradient-to-r from-cyan-600 to-sky-700 text-white'
               }`}>
                 <div dangerouslySetInnerHTML={{ __html: formatContent(message.content) }} />
               </div>
 
               {/* Generated Project Card */}
               {message.projectData && (
-                <div className="glass-card rounded-xl p-4 w-full mt-2 border border-violet-500/30">
+                <div className="glass-card rounded-xl p-4 w-full mt-2 border border-cyan-500/30">
                   <div className="flex items-center gap-2 mb-3">
-                    <Wand2 className="w-4 h-4 text-violet-400" />
-                    <span className="text-sm font-semibold text-violet-300">Generated Project Plan</span>
+                    <Wand2 className="w-4 h-4 text-cyan-400" />
+                    <span className="text-sm font-semibold text-cyan-300">Generated Project Plan</span>
                   </div>
                   <h3 className="font-bold text-white mb-1">{message.projectData.title}</h3>
                   <p className="text-xs text-gray-400 mb-3">{message.projectData.description}</p>
@@ -238,7 +238,7 @@ export default function AIChatPage() {
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {message.projectData.skills?.map((skill) => (
-                      <span key={skill} className="text-xs px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                      <span key={skill} className="text-xs px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                         {skill}
                       </span>
                     ))}
@@ -267,14 +267,14 @@ export default function AIChatPage() {
 
         {isLoading && (
           <div className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-600 to-cyan-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-600 to-cyan-600 flex items-center justify-center flex-shrink-0">
               <Bot className="w-4 h-4 text-white" />
             </div>
             <div className="glass-card rounded-2xl px-4 py-3">
               <div className="flex gap-1 items-center h-5">
-                <span className="w-2 h-2 bg-violet-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                <span className="w-2 h-2 bg-violet-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                <span className="w-2 h-2 bg-violet-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                <span className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
               </div>
             </div>
           </div>
@@ -302,7 +302,7 @@ export default function AIChatPage() {
         <button
           onClick={() => sendMessage()}
           disabled={!input.trim() || isLoading}
-          className="w-9 h-9 flex-shrink-0 rounded-lg bg-gradient-to-r from-violet-600 to-violet-700 hover:from-violet-500 hover:to-violet-600 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-all"
+          className="w-9 h-9 flex-shrink-0 rounded-lg bg-gradient-to-r from-cyan-600 to-sky-700 hover:from-cyan-500 hover:to-sky-600 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-all"
         >
           {isLoading ? <Loader2 className="w-4 h-4 text-white animate-spin" /> : <Send className="w-4 h-4 text-white" />}
         </button>
@@ -310,3 +310,4 @@ export default function AIChatPage() {
     </div>
   );
 }
+

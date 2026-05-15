@@ -92,7 +92,7 @@ export default function ClientProjectsPage() {
               onClick={() => setStatusFilter(s)}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all border ${
                 statusFilter === s
-                  ? 'bg-violet-600 text-white border-violet-500'
+                  ? 'bg-cyan-600 text-white border-cyan-500'
                   : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-white'
               }`}
             >
@@ -105,7 +105,7 @@ export default function ClientProjectsPage() {
       {/* Project List */}
       {loading ? (
         <div className="flex justify-center py-12">
-          <Loader2 className="w-8 h-8 animate-spin text-violet-400" />
+          <Loader2 className="w-8 h-8 animate-spin text-cyan-400" />
         </div>
       ) : filtered.length === 0 ? (
         <div className="glass-card rounded-xl p-12 text-center">
@@ -167,3 +167,4 @@ export default function ClientProjectsPage() {
     </div>
   );
 }
+

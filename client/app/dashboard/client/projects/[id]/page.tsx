@@ -101,7 +101,7 @@ export default function ProjectDetailPage() {
 
   if (loading) return (
     <div className="flex items-center justify-center h-full py-20">
-      <Loader2 className="w-8 h-8 animate-spin text-violet-400" />
+      <Loader2 className="w-8 h-8 animate-spin text-cyan-400" />
     </div>
   );
 
@@ -149,12 +149,12 @@ export default function ProjectDetailPage() {
         </div>
       )}
       {submittedMilestones.length > 0 && (
-        <div className="glass-card rounded-xl p-4 border border-violet-500/30 bg-violet-500/5 flex items-center gap-3">
-          <CheckCircle className="w-5 h-5 text-violet-400 flex-shrink-0" />
-          <span className="text-sm text-violet-300">
+        <div className="glass-card rounded-xl p-4 border border-cyan-500/30 bg-cyan-500/5 flex items-center gap-3">
+          <CheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+          <span className="text-sm text-cyan-300">
             <strong>{submittedMilestones.length}</strong> milestone{submittedMilestones.length > 1 ? 's' : ''} submitted for review
           </span>
-          <button onClick={() => setActiveTab('milestones')} className="ml-auto text-xs text-violet-400 hover:underline">
+          <button onClick={() => setActiveTab('milestones')} className="ml-auto text-xs text-cyan-400 hover:underline">
             Review Now
           </button>
         </div>
@@ -167,7 +167,7 @@ export default function ProjectDetailPage() {
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all capitalize ${
-              activeTab === tab ? 'bg-violet-600 text-white' : 'text-gray-400 hover:text-white'
+              activeTab === tab ? 'bg-cyan-600 text-white' : 'text-gray-400 hover:text-white'
             }`}
           >
             {tab}
@@ -189,7 +189,7 @@ export default function ProjectDetailPage() {
             <h3 className="font-semibold text-white mb-3">Required Skills</h3>
             <div className="flex flex-wrap gap-2">
               {project.skills?.map((skill) => (
-                <span key={skill} className="text-sm px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                <span key={skill} className="text-sm px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                   {skill}
                 </span>
               ))}
@@ -199,7 +199,7 @@ export default function ProjectDetailPage() {
             <div className="glass-card rounded-xl p-5">
               <h3 className="font-semibold text-white mb-3">Assigned Freelancer</h3>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600 to-cyan-600 flex items-center justify-center text-white font-bold">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-600 to-sky-600 flex items-center justify-center text-white font-bold">
                   {project.freelancer.name[0]}
                 </div>
                 <div>
@@ -241,7 +241,7 @@ export default function ProjectDetailPage() {
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-600 to-cyan-600 flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-600 to-sky-600 flex items-center justify-center text-white font-bold">
                         {proposal.freelancer?.name?.[0] || 'F'}
                       </div>
                       <div>

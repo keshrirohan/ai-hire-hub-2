@@ -66,7 +66,7 @@ export default function ClientDashboard() {
   const statCards = [
     { label: 'Total Projects', value: stats.totalProjects, icon: FolderOpen, color: 'from-blue-500 to-cyan-500', bg: 'bg-blue-500/10' },
     { label: 'Active Projects', value: stats.activeProjects, icon: TrendingUp, color: 'from-green-500 to-emerald-500', bg: 'bg-green-500/10' },
-    { label: 'Wallet Balance', value: formatCurrency(stats.walletBalance), icon: DollarSign, color: 'from-purple-500 to-violet-500', bg: 'bg-purple-500/10' },
+    { label: 'Wallet Balance', value: formatCurrency(stats.walletBalance), icon: DollarSign, color: 'from-cyan-500 to-sky-500', bg: 'bg-cyan-500/10' },
     { label: 'Total Spent', value: formatCurrency(stats.totalSpent), icon: Clock, color: 'from-orange-500 to-amber-500', bg: 'bg-orange-500/10' },
   ];
 
@@ -83,7 +83,7 @@ export default function ClientDashboard() {
   return (
     <div className="p-6 space-y-8">
       {/* Welcome Banner */}
-      <div className="glass-card rounded-2xl p-6 bg-gradient-to-r from-violet-600/20 to-cyan-600/20 border border-violet-500/30">
+      <div className="glass-card rounded-2xl p-6 bg-gradient-to-r from-cyan-600/20 to-sky-600/20 border border-cyan-500/30">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <h1 className="text-2xl font-bold text-white">
@@ -117,9 +117,9 @@ export default function ClientDashboard() {
       <div className="glass-card rounded-xl p-6">
         <h2 className="text-lg font-semibold text-white mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <Link href="/dashboard/client/ai-chat" className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-violet-600/20 to-purple-600/20 border border-violet-500/30 hover:border-violet-400/50 transition-all group">
-            <div className="p-2 bg-violet-500/20 rounded-lg group-hover:bg-violet-500/30 transition-colors">
-              <Bot className="w-5 h-5 text-violet-400" />
+          <Link href="/dashboard/client/ai-chat" className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-cyan-600/20 to-sky-600/20 border border-cyan-500/30 hover:border-cyan-400/50 transition-all group">
+            <div className="p-2 bg-cyan-500/20 rounded-lg group-hover:bg-cyan-500/30 transition-colors">
+              <Bot className="w-5 h-5 text-cyan-400" />
             </div>
             <div>
               <div className="text-sm font-medium text-white">AI Project Planner</div>
@@ -154,13 +154,13 @@ export default function ClientDashboard() {
       <div className="glass-card rounded-xl p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-white">Recent Projects</h2>
-          <Link href="/dashboard/client/projects" className="text-sm text-violet-400 hover:text-violet-300 flex items-center gap-1">
+          <Link href="/dashboard/client/projects" className="text-sm text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
             View all <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
         {loading ? (
           <div className="flex items-center justify-center py-8">
-            <Loader2 className="w-6 h-6 animate-spin text-violet-400" />
+            <Loader2 className="w-6 h-6 animate-spin text-cyan-400" />
           </div>
         ) : recentProjects.length === 0 ? (
           <div className="text-center py-12">
@@ -179,7 +179,7 @@ export default function ClientDashboard() {
                 <Link key={project._id} href={`/dashboard/client/projects/${project._id}`}
                   className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/5 hover:border-white/10">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-600 flex items-center justify-center text-white font-bold text-sm">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-600 to-sky-600 flex items-center justify-center text-white font-bold text-sm">
                       {project.title[0]}
                     </div>
                     <div>

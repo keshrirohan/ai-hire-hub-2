@@ -121,7 +121,7 @@ export default function FreelancerProjectDetail() {
 
   if (loading) return (
     <div className="flex items-center justify-center py-20">
-      <Loader2 className="w-8 h-8 animate-spin text-violet-400" />
+      <Loader2 className="w-8 h-8 animate-spin text-cyan-400" />
     </div>
   );
   if (!project) return null;
@@ -166,7 +166,7 @@ export default function FreelancerProjectDetail() {
 
       {/* Proposal Form */}
       {showProposalForm && (
-        <div className="glass-card rounded-xl p-6 border border-violet-500/30">
+        <div className="glass-card rounded-xl p-6 border border-cyan-500/30">
           <h2 className="text-lg font-semibold text-white mb-4">Write Your Proposal</h2>
           <form onSubmit={handleSubmit(onSubmitProposal)} className="space-y-4">
             <div>
@@ -220,7 +220,7 @@ export default function FreelancerProjectDetail() {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all capitalize ${
-                activeTab === tab ? 'bg-violet-600 text-white' : 'text-gray-400 hover:text-white'
+                activeTab === tab ? 'bg-cyan-600 text-white' : 'text-gray-400 hover:text-white'
               }`}
             >
               {tab}
@@ -240,7 +240,7 @@ export default function FreelancerProjectDetail() {
             <h3 className="font-semibold text-white mb-3">Required Skills</h3>
             <div className="flex flex-wrap gap-2">
               {project.skills?.map((skill) => (
-                <span key={skill} className="text-sm px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                <span key={skill} className="text-sm px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                   {skill}
                 </span>
               ))}
@@ -251,7 +251,7 @@ export default function FreelancerProjectDetail() {
             <div className="space-y-3">
               {project.milestones?.map((m, idx) => (
                 <div key={m._id} className="flex items-start gap-3 p-3 rounded-lg bg-white/5">
-                  <div className="w-6 h-6 rounded-full bg-violet-500/30 flex items-center justify-center text-xs text-violet-300 font-bold flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-cyan-500/30 flex items-center justify-center text-xs text-cyan-300 font-bold flex-shrink-0 mt-0.5">
                     {idx + 1}
                   </div>
                   <div className="flex-1">

@@ -69,7 +69,7 @@ export default function FreelancerProjectsPage() {
             key={t}
             onClick={() => setTab(t)}
             className={`px-5 py-2 text-sm font-medium rounded-lg transition-all capitalize ${
-              tab === t ? 'bg-violet-600 text-white' : 'text-gray-400 hover:text-white'
+              tab === t ? 'bg-cyan-600 text-white' : 'text-gray-400 hover:text-white'
             }`}
           >
             {t}
@@ -88,7 +88,7 @@ export default function FreelancerProjectsPage() {
       </div>
 
       {loading ? (
-        <div className="flex justify-center py-12"><Loader2 className="w-8 h-8 animate-spin text-violet-400" /></div>
+        <div className="flex justify-center py-12"><Loader2 className="w-8 h-8 animate-spin text-cyan-400" /></div>
       ) : filtered.length === 0 ? (
         <div className="glass-card rounded-xl p-12 text-center">
           <Briefcase className="w-16 h-16 text-gray-600 mx-auto mb-4" />
@@ -139,7 +139,7 @@ export default function FreelancerProjectsPage() {
                     </div>
                     <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-violet-600 to-cyan-600 rounded-full transition-all"
+                        className="h-full bg-gradient-to-r from-cyan-600 to-cyan-600 rounded-full transition-all"
                         style={{ width: `${progress}%` }}
                       />
                     </div>
@@ -153,3 +153,4 @@ export default function FreelancerProjectsPage() {
     </div>
   );
 }
+

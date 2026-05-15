@@ -98,11 +98,11 @@ export default function NewProjectPage() {
       </div>
 
       {/* Tip */}
-      <div className="glass-card rounded-xl p-4 flex gap-3 border border-violet-500/20 bg-violet-500/5">
-        <Lightbulb className="w-5 h-5 text-violet-400 flex-shrink-0 mt-0.5" />
+      <div className="glass-card rounded-xl p-4 flex gap-3 border border-cyan-500/20 bg-cyan-500/5">
+        <Lightbulb className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
         <p className="text-sm text-gray-300">
-          <strong className="text-violet-300">Pro tip:</strong> Use our{' '}
-          <Link href="/dashboard/client/ai-chat" className="text-violet-400 hover:underline">AI Planner</Link>{' '}
+          <strong className="text-cyan-300">Pro tip:</strong> Use our{' '}
+          <Link href="/dashboard/client/ai-chat" className="text-cyan-400 hover:underline">AI Planner</Link>{' '}
           to automatically generate your project scope, milestones, and budget estimate!
         </p>
       </div>
@@ -111,7 +111,7 @@ export default function NewProjectPage() {
         {/* Basic Info */}
         <div className="glass-card rounded-xl p-6 space-y-4">
           <h2 className="text-lg font-semibold text-white flex items-center gap-2">
-            <AlignLeft className="w-5 h-5 text-violet-400" /> Project Details
+            <AlignLeft className="w-5 h-5 text-cyan-400" /> Project Details
           </h2>
 
           <div>
@@ -138,7 +138,7 @@ export default function NewProjectPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                <DollarSign className="w-4 h-4 inline mr-1 text-violet-400" /> Budget (₹) *
+                <DollarSign className="w-4 h-4 inline mr-1 text-cyan-400" /> Budget (₹) *
               </label>
               <input
                 type="number"
@@ -150,7 +150,7 @@ export default function NewProjectPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                <Clock className="w-4 h-4 inline mr-1 text-violet-400" /> Timeline *
+                <Clock className="w-4 h-4 inline mr-1 text-cyan-400" /> Timeline *
               </label>
               <select {...register('timeline')} className="input-field w-full">
                 <option value="">Select timeline</option>
@@ -169,7 +169,7 @@ export default function NewProjectPage() {
         {/* Skills */}
         <div className="glass-card rounded-xl p-6 space-y-4">
           <h2 className="text-lg font-semibold text-white flex items-center gap-2">
-            <Tag className="w-5 h-5 text-violet-400" /> Required Skills *
+            <Tag className="w-5 h-5 text-cyan-400" /> Required Skills *
           </h2>
           <input type="hidden" {...register('skills')} />
           <div className="flex gap-2">
@@ -186,7 +186,7 @@ export default function NewProjectPage() {
           {skillsList.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {skillsList.map((skill) => (
-                <span key={skill} className="flex items-center gap-1 text-sm px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
+                <span key={skill} className="flex items-center gap-1 text-sm px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                   {skill}
                   <button type="button" onClick={() => removeSkill(skill)} className="hover:text-red-400 transition-colors">
                     ×
@@ -215,7 +215,7 @@ export default function NewProjectPage() {
             {fields.map((field, idx) => (
               <div key={field.id} className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-violet-300">Milestone {idx + 1}</span>
+                  <span className="text-sm font-medium text-cyan-300">Milestone {idx + 1}</span>
                   {fields.length > 1 && (
                     <button type="button" onClick={() => remove(idx)} className="p-1.5 rounded-lg hover:bg-red-500/20 transition-colors">
                       <Trash2 className="w-4 h-4 text-red-400" />
@@ -263,3 +263,4 @@ export default function NewProjectPage() {
     </div>
   );
 }
+

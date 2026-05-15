@@ -54,7 +54,7 @@ export default function FreelancerWalletPage() {
 
       {/* Balance Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="glass-card rounded-xl p-5 bg-gradient-to-br from-violet-600/20 to-purple-600/20 border border-violet-500/30">
+        <div className="glass-card rounded-xl p-5 bg-gradient-to-br from-cyan-600/20 to-sky-600/20 border border-cyan-500/30">
           <div className="flex items-center gap-2 text-gray-400 mb-2 text-sm">
             <Wallet className="w-4 h-4" /> Available Balance
           </div>
@@ -91,7 +91,7 @@ export default function FreelancerWalletPage() {
       <div className="glass-card rounded-xl p-5">
         <h2 className="text-lg font-semibold text-white mb-4">Transaction History</h2>
         {loading ? (
-          <div className="flex justify-center py-8"><Loader2 className="w-6 h-6 animate-spin text-violet-400" /></div>
+          <div className="flex justify-center py-8"><Loader2 className="w-6 h-6 animate-spin text-cyan-400" /></div>
         ) : transactions.length === 0 ? (
           <div className="text-center py-10">
             <Wallet className="w-12 h-12 text-gray-600 mx-auto mb-3" />

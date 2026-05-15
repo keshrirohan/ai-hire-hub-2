@@ -103,7 +103,7 @@ export default function BrowseProjectsPage() {
               onClick={() => setBudgetFilter(range.value)}
               className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all border ${
                 budgetFilter === range.value
-                  ? 'bg-violet-600 text-white border-violet-500'
+                  ? 'bg-cyan-600 text-white border-cyan-500'
                   : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-white'
               }`}
             >
@@ -119,7 +119,7 @@ export default function BrowseProjectsPage() {
       </div>
 
       {loading ? (
-        <div className="flex justify-center py-12"><Loader2 className="w-8 h-8 animate-spin text-violet-400" /></div>
+        <div className="flex justify-center py-12"><Loader2 className="w-8 h-8 animate-spin text-cyan-400" /></div>
       ) : filtered.length === 0 ? (
         <div className="glass-card rounded-xl p-12 text-center">
           <Briefcase className="w-16 h-16 text-gray-600 mx-auto mb-4" />
@@ -137,7 +137,7 @@ export default function BrowseProjectsPage() {
               <div className="flex items-start gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-4 mb-2">
-                    <h3 className="font-semibold text-white hover:text-violet-300 transition-colors">
+                    <h3 className="font-semibold text-white hover:text-cyan-300 transition-colors">
                       {project.title}
                     </h3>
                     <div className="flex-shrink-0 text-right">
@@ -172,3 +172,4 @@ export default function BrowseProjectsPage() {
     </div>
   );
 }
+
