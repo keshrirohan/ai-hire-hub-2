@@ -25,16 +25,77 @@ const dmMono = DM_Mono({
   display: 'swap',
 });
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://airehub.com';
+
 export const metadata: Metadata = {
-  title: 'AI Hire Hub — Intelligent Freelancer Marketplace',
-  description:
-    'Hire top freelancers powered by AI. Chat with AI to plan your project, get matched with experts, and manage milestones with smart payments.',
-  keywords: 'freelancer, hire, AI, project management, milestones, payments',
-  openGraph: {
-    title: 'AI Hire Hub',
-    description: 'Intelligent Freelancer Marketplace',
-    type: 'website',
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: 'AI Hire Hub — Intelligent Freelancer Marketplace',
+    template: '%s | AI Hire Hub',
   },
+  description:
+    'Hire top freelancers powered by AI. Chat with AI to plan your project, get matched with expert developers & designers, and release payments milestone by milestone — all in one platform.',
+  keywords: [
+    'freelancer marketplace',
+    'AI hiring platform',
+    'hire freelancers online',
+    'AI project planning',
+    'milestone payments',
+    'escrow payments freelancers',
+    'find freelance developers',
+    'Groq AI',
+    'remote work platform',
+    'AI hire hub',
+  ],
+  authors: [{ name: 'AI Hire Hub', url: BASE_URL }],
+  creator: 'AI Hire Hub',
+  publisher: 'AI Hire Hub',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'AI Hire Hub',
+    title: 'AI Hire Hub — Intelligent Freelancer Marketplace',
+    description:
+      'Hire top freelancers powered by AI. Plan projects, get matched with experts, and release payments securely — all in one place.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AI Hire Hub — Intelligent Freelancer Marketplace',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Hire Hub — Intelligent Freelancer Marketplace',
+    description:
+      'Hire top freelancers powered by AI. Plan projects, get matched with experts, and release payments securely.',
+    images: ['/og-image.png'],
+    creator: '@airehub',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+  category: 'technology',
 };
 
 export default function RootLayout({
@@ -43,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" dir="ltr">
       <body className={`${plusJakarta.variable} ${dmSerif.variable} ${dmMono.variable}`}>
         {children}
         <Toaster

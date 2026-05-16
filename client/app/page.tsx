@@ -138,6 +138,57 @@ const stats = [
   { value: '4.9★', label: 'Average Rating' },
 ];
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://airehub.com/#organization',
+      name: 'AI Hire Hub',
+      url: 'https://airehub.com',
+      description:
+        'AI-powered freelancer marketplace that uses Groq AI to plan projects, match talent, and manage milestone-based payments.',
+      sameAs: [],
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: 'AI Hire Hub',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Starter',
+          price: '0',
+          priceCurrency: 'INR',
+          description: 'Free plan with 3 AI project plans per month',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Professional',
+          price: '999',
+          priceCurrency: 'INR',
+          description: 'Unlimited AI project plans, priority matching, and 24/7 support',
+        },
+      ],
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '15000',
+        bestRating: '5',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://airehub.com/#website',
+      url: 'https://airehub.com',
+      name: 'AI Hire Hub',
+      description: 'Intelligent Freelancer Marketplace powered by Groq AI',
+      publisher: { '@id': 'https://airehub.com/#organization' },
+    },
+  ],
+};
+
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState('all');
@@ -149,9 +200,15 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen hero-gradient overflow-hidden">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen hero-gradient overflow-hidden">
       {/* Navbar */}
       <nav
+        aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? 'glass border-b border-white/10' : ''
         }`}
@@ -189,7 +246,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative">
+      <section aria-label="Hero" className="pt-32 pb-20 px-6 relative">
         {/* Background orbs */}
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-40 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -291,10 +348,10 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-20 px-6">
+      <section id="features" aria-labelledby="features-heading" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            <h2 id="features-heading" className="text-4xl md:text-5xl font-black text-white mb-4">
               Everything You Need to
               <span className="gradient-text"> Hire & Get Hired</span>
             </h2>
@@ -320,10 +377,10 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 px-6">
+      <section id="how-it-works" aria-labelledby="how-it-works-heading" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            <h2 id="how-it-works-heading" className="text-4xl md:text-5xl font-black text-white mb-4">
               How <span className="gradient-text">AI Hire Hub</span> Works
             </h2>
             <p className="text-slate-400 text-lg">From idea to shipped product in 4 simple steps</p>
@@ -348,10 +405,10 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 px-6">
+      <section id="testimonials" aria-labelledby="testimonials-heading" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-4">
+            <h2 id="testimonials-heading" className="text-4xl font-black text-white mb-4">
               Loved by <span className="gradient-text">Thousands</span>
             </h2>
           </div>
@@ -380,10 +437,10 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 px-6">
+      <section id="pricing" aria-labelledby="pricing-heading" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-4">
+            <h2 id="pricing-heading" className="text-4xl font-black text-white mb-4">
               Simple, <span className="gradient-text">Transparent</span> Pricing
             </h2>
             <p className="text-slate-400">No hidden fees. Pay only when projects succeed.</p>
@@ -492,6 +549,7 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
