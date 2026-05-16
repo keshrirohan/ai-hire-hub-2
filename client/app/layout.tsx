@@ -1,19 +1,38 @@
 import type { Metadata } from 'next';
-import { Outfit, Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans, DM_Serif_Display, DM_Mono } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
 
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-jakarta',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  display: 'swap',
+});
+
+const dmSerif = DM_Serif_Display({
+  subsets: ['latin'],
+  variable: '--font-serif',
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+});
+
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['300', '400', '500'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'AI Hire Hub - AI-Powered Freelancer Marketplace',
+  title: 'AI Hire Hub — Intelligent Freelancer Marketplace',
   description:
     'Hire top freelancers powered by AI. Chat with AI to plan your project, get matched with experts, and manage milestones with smart payments.',
   keywords: 'freelancer, hire, AI, project management, milestones, payments',
   openGraph: {
     title: 'AI Hire Hub',
-    description: 'AI-Powered Freelancer Marketplace',
+    description: 'Intelligent Freelancer Marketplace',
     type: 'website',
   },
 };
@@ -25,22 +44,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${outfit.variable} ${inter.variable}`}>
+      <body className={`${plusJakarta.variable} ${dmSerif.variable} ${dmMono.variable}`}>
         {children}
         <Toaster
           position="top-right"
           toastOptions={{
             style: {
-              background: '#1e293b',
-              color: '#f1f5f9',
-              border: '1px solid #334155',
-              borderRadius: '12px',
+              background: '#1a1d27',
+              color: '#e8e4dc',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: '10px',
+              fontFamily: 'var(--font-jakarta)',
+              fontSize: '14px',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
             },
             success: {
-              iconTheme: { primary: '#10b981', secondary: '#f1f5f9' },
+              iconTheme: { primary: '#6ee7b7', secondary: '#1a1d27' },
             },
             error: {
-              iconTheme: { primary: '#ef4444', secondary: '#f1f5f9' },
+              iconTheme: { primary: '#fca5a5', secondary: '#1a1d27' },
             },
           }}
         />
