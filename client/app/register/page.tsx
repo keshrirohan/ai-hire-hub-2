@@ -42,7 +42,7 @@ function RegisterContent() {
   const onSubmit = async (data: RegisterForm) => {
     try {
       await registerUser({ ...data, role: selectedRole });
-      toast.success('Account created successfully! 🎉');
+      toast.success('Account created!');
       if (selectedRole === 'client') {
         router.push('/dashboard/client');
       } else {
@@ -60,132 +60,154 @@ function RegisterContent() {
   };
 
   return (
-    <div className="min-h-screen hero-gradient flex items-center justify-center p-6">
-      {/* Background orbs */}
-      <div className="fixed top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-20 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen hero-gradient dot-grid flex items-center justify-center p-6">
+      <div className="w-full max-w-[420px]">
 
-      <div className="w-full max-w-md relative">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
-              <Bot className="w-5 h-5 text-white" />
+        {/* Wordmark */}
+        <div className="mb-10">
+          <Link href="/" className="inline-flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-lg bg-[#e8b86d] flex items-center justify-center flex-shrink-0">
+              <Bot className="w-5 h-5 text-[#0f1117]" />
             </div>
-            <span className="text-xl font-bold gradient-text">AI Hire Hub</span>
+            <span
+              className="text-[#e8e4dc] font-semibold text-lg tracking-tight"
+              style={{ fontFamily: 'var(--font-jakarta)' }}
+            >
+              AI Hire Hub
+            </span>
           </Link>
-          <h1 className="text-2xl font-black text-white">Create your account</h1>
-          <p className="text-slate-400 text-sm mt-1">Join thousands of professionals</p>
         </div>
 
-        <div className="glass-strong rounded-2xl p-8 border border-white/10">
-          {/* Role Selection */}
-          <div className="grid grid-cols-2 gap-3 mb-6">
-            <button
-              type="button"
-              onClick={() => handleRoleSelect('client')}
-              className={`p-4 rounded-xl border transition-all duration-200 text-left ${
-                selectedRole === 'client'
-                  ? 'bg-cyan-500/20 border-cyan-500/50 text-cyan-300'
-                  : 'glass border-white/10 text-slate-400 hover:border-white/20'
-              }`}
-            >
-              <User className="w-5 h-5 mb-2" />
-              <div className="text-sm font-semibold">Client</div>
-              <div className="text-xs opacity-70">Hire freelancers</div>
-            </button>
-            <button
-              type="button"
-              onClick={() => handleRoleSelect('freelancer')}
-              className={`p-4 rounded-xl border transition-all duration-200 text-left ${
-                selectedRole === 'freelancer'
-                  ? 'bg-sky-500/20 border-sky-500/50 text-sky-300'
-                  : 'glass border-white/10 text-slate-400 hover:border-white/20'
-              }`}
-            >
-              <Briefcase className="w-5 h-5 mb-2" />
-              <div className="text-sm font-semibold">Freelancer</div>
-              <div className="text-xs opacity-70">Find projects</div>
-            </button>
+        {/* Heading */}
+        <div className="mb-8">
+          <h1
+            className="text-4xl text-[#e8e4dc] mb-2"
+            style={{ fontFamily: 'var(--font-serif)' }}
+          >
+            Create account.
+          </h1>
+          <p className="text-[#6b6760] text-sm">Join thousands of professionals worldwide</p>
+        </div>
+
+        {/* Form card */}
+        <div className="surface-raised rounded-xl p-7">
+
+          {/* Role selector */}
+          <div className="mb-6">
+            <label className="block text-xs font-medium text-[#6b6760] uppercase tracking-widest mb-3">
+              I am a
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => handleRoleSelect('client')}
+                className={`p-3.5 rounded-lg border text-left transition-all duration-150 ${
+                  selectedRole === 'client'
+                    ? 'bg-[#e8b86d]/10 border-[#e8b86d]/35 text-[#e8b86d]'
+                    : 'border-white/07 text-[#4a4845] hover:border-white/15 hover:text-[#a9a49e]'
+                }`}
+              >
+                <User className="w-4 h-4 mb-2" />
+                <div className="text-sm font-semibold">Client</div>
+                <div className="text-xs opacity-60 mt-0.5">Hire freelancers</div>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleRoleSelect('freelancer')}
+                className={`p-3.5 rounded-lg border text-left transition-all duration-150 ${
+                  selectedRole === 'freelancer'
+                    ? 'bg-[#e8b86d]/10 border-[#e8b86d]/35 text-[#e8b86d]'
+                    : 'border-white/07 text-[#4a4845] hover:border-white/15 hover:text-[#a9a49e]'
+                }`}
+              >
+                <Briefcase className="w-4 h-4 mb-2" />
+                <div className="text-sm font-semibold">Freelancer</div>
+                <div className="text-xs opacity-60 mt-0.5">Find projects</div>
+              </button>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label className="block text-sm text-slate-400 mb-1.5">Full Name</label>
+              <label className="block text-xs font-medium text-[#6b6760] uppercase tracking-widest mb-2">
+                Full Name
+              </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3d3b38]" />
                 <input
                   {...register('name')}
-                  placeholder="John Doe"
-                  className="input-dark w-full pl-10"
+                  placeholder="Your full name"
+                  className="input-dark pl-10"
                 />
               </div>
               {errors.name && (
-                <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>
+                <p className="text-red-400 text-xs mt-1.5">{errors.name.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm text-slate-400 mb-1.5">Email Address</label>
+              <label className="block text-xs font-medium text-[#6b6760] uppercase tracking-widest mb-2">
+                Email
+              </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3d3b38]" />
                 <input
                   {...register('email')}
                   type="email"
-                  placeholder="john@example.com"
-                  className="input-dark w-full pl-10"
+                  placeholder="you@example.com"
+                  className="input-dark pl-10"
                 />
               </div>
               {errors.email && (
-                <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
+                <p className="text-red-400 text-xs mt-1.5">{errors.email.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm text-slate-400 mb-1.5">Password</label>
+              <label className="block text-xs font-medium text-[#6b6760] uppercase tracking-widest mb-2">
+                Password
+              </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3d3b38]" />
                 <input
                   {...register('password')}
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Min. 6 characters"
-                  className="input-dark w-full pl-10 pr-10"
+                  className="input-dark pl-10 pr-10"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#3d3b38] hover:text-[#a9a49e] transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-red-400 text-xs mt-1">{errors.password.message}</p>
+                <p className="text-red-400 text-xs mt-1.5">{errors.password.message}</p>
               )}
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-semibold hover:from-cyan-500 hover:to-sky-500 transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/25 mt-2"
+              className="btn-primary w-full justify-center py-3 mt-1"
             >
               {isLoading ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <Loader2 className="w-4 h-4 animate-spin" />
               ) : (
-                <>
-                  Create Account <ArrowRight className="w-4 h-4" />
-                </>
+                <>Create Account <ArrowRight className="w-4 h-4" /></>
               )}
             </button>
           </form>
-
-          <p className="text-center text-sm text-slate-500 mt-6">
-            Already have an account?{' '}
-            <Link href="/login" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
-              Sign in
-            </Link>
-          </p>
         </div>
+
+        <p className="text-center text-sm text-[#4a4845] mt-6">
+          Already have an account?{' '}
+          <Link href="/login" className="text-[#e8b86d] hover:text-[#f0c87a] transition-colors">
+            Sign in
+          </Link>
+        </p>
       </div>
     </div>
   );
@@ -193,7 +215,11 @@ function RegisterContent() {
 
 export default function RegisterPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen hero-gradient flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-cyan-400" /></div>}>
+    <Suspense fallback={
+      <div className="min-h-screen hero-gradient flex items-center justify-center">
+        <Loader2 className="w-7 h-7 animate-spin text-[#e8b86d]" />
+      </div>
+    }>
       <RegisterContent />
     </Suspense>
   );

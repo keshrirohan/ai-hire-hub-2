@@ -34,7 +34,7 @@ export default function LoginPage() {
     try {
       await login(data.email, data.password);
       const user = useAuthStore.getState().user;
-      toast.success(`Welcome back, ${user?.name}! 👋`);
+      toast.success(`Welcome back, ${user?.name}!`);
       if (user?.role === 'client') {
         router.push('/dashboard/client');
       } else {
@@ -47,60 +47,78 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen hero-gradient flex items-center justify-center p-6">
-      <div className="fixed top-20 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-20 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen hero-gradient dot-grid flex items-center justify-center p-6">
+      <div className="w-full max-w-[400px]">
 
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-600 flex items-center justify-center">
-              <Bot className="w-5 h-5 text-white" />
+        {/* Wordmark */}
+        <div className="mb-10">
+          <Link href="/" className="inline-flex items-center gap-2.5 group">
+            <div className="w-9 h-9 rounded-lg bg-[#e8b86d] flex items-center justify-center flex-shrink-0">
+              <Bot className="w-5 h-5 text-[#0f1117]" />
             </div>
-            <span className="text-xl font-bold gradient-text">AI Hire Hub</span>
+            <span
+              className="text-[#e8e4dc] font-semibold text-lg tracking-tight"
+              style={{ fontFamily: 'var(--font-jakarta)' }}
+            >
+              AI Hire Hub
+            </span>
           </Link>
-          <h1 className="text-2xl font-black text-white">Welcome back</h1>
-          <p className="text-slate-400 text-sm mt-1">Sign in to your account</p>
         </div>
 
-        <div className="glass-strong rounded-2xl p-8 border border-white/10">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {/* Heading */}
+        <div className="mb-8">
+          <h1
+            className="text-4xl text-[#e8e4dc] mb-2"
+            style={{ fontFamily: 'var(--font-serif)' }}
+          >
+            Welcome back.
+          </h1>
+          <p className="text-[#6b6760] text-sm">Sign in to continue to your workspace</p>
+        </div>
+
+        {/* Form card */}
+        <div className="surface-raised rounded-xl p-7">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div>
-              <label className="block text-sm text-slate-400 mb-1.5">Email Address</label>
+              <label className="block text-xs font-medium text-[#6b6760] uppercase tracking-widest mb-2">
+                Email
+              </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3d3b38]" />
                 <input
                   {...register('email')}
                   type="email"
-                  placeholder="john@example.com"
-                  className="input-dark w-full pl-10"
+                  placeholder="you@example.com"
+                  className="input-dark pl-10"
                 />
               </div>
               {errors.email && (
-                <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
+                <p className="text-red-400 text-xs mt-1.5">{errors.email.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm text-slate-400 mb-1.5">Password</label>
+              <label className="block text-xs font-medium text-[#6b6760] uppercase tracking-widest mb-2">
+                Password
+              </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3d3b38]" />
                 <input
                   {...register('password')}
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Your password"
-                  className="input-dark w-full pl-10 pr-10"
+                  placeholder="••••••••"
+                  className="input-dark pl-10 pr-10"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#3d3b38] hover:text-[#a9a49e] transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-red-400 text-xs mt-1">{errors.password.message}</p>
+                <p className="text-red-400 text-xs mt-1.5">{errors.password.message}</p>
               )}
             </div>
 
@@ -108,32 +126,30 @@ export default function LoginPage() {
               type="submit"
               disabled={isLoading}
               id="login-btn"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-semibold hover:from-cyan-500 hover:to-sky-500 transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/25 mt-2"
+              className="btn-primary w-full justify-center py-3 mt-1"
             >
               {isLoading ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <Loader2 className="w-4 h-4 animate-spin" />
               ) : (
-                <>
-                  Sign In <ArrowRight className="w-4 h-4" />
-                </>
+                <>Sign In <ArrowRight className="w-4 h-4" /></>
               )}
             </button>
           </form>
 
           {/* Demo credentials */}
-          <div className="mt-6 p-4 rounded-xl bg-blue-500/10 border border-blue-500/20">
-            <p className="text-xs text-blue-300 font-medium mb-2">Demo Credentials:</p>
-            <p className="text-xs text-slate-400">Client: client@demo.com / demo123</p>
-            <p className="text-xs text-slate-400">Freelancer: freelancer@demo.com / demo123</p>
+          <div className="mt-6 p-4 rounded-lg bg-[#1a1d27] border border-white/5">
+            <p className="text-xs text-[#6b6760] font-medium mb-1.5 uppercase tracking-widest">Demo</p>
+            <p className="text-xs text-[#4a4845] font-mono">client@demo.com / demo123</p>
+            <p className="text-xs text-[#4a4845] font-mono mt-0.5">freelancer@demo.com / demo123</p>
           </div>
-
-          <p className="text-center text-sm text-slate-500 mt-6">
-            Don&apos;t have an account?{' '}
-            <Link href="/register" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
-              Sign up
-            </Link>
-          </p>
         </div>
+
+        <p className="text-center text-sm text-[#4a4845] mt-6">
+          No account?{' '}
+          <Link href="/register" className="text-[#e8b86d] hover:text-[#f0c87a] transition-colors">
+            Create one free
+          </Link>
+        </p>
       </div>
     </div>
   );
