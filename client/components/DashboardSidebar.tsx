@@ -10,6 +10,7 @@ import {
 import { useAuthStore } from '@/store/authStore';
 import { getInitials } from '@/lib/utils';
 import toast from 'react-hot-toast';
+import ThemeToggle from '@/components/ThemeToggle';
 
 interface SidebarProps {
   role: 'client' | 'freelancer';
@@ -124,8 +125,11 @@ export default function DashboardSidebar({ role }: SidebarProps) {
         </div>
       )}
 
-      {/* Logout */}
-      <div className="px-3 pb-4">
+      {/* Theme + Logout */}
+      <div className="px-3 pb-4 space-y-1">
+        <div className="flex items-center justify-between px-4 py-2.5">
+          <ThemeToggle />
+        </div>
         <button
           onClick={handleLogout}
           className="w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#4a4845] hover:text-[#fca5a5] hover:bg-red-500/05 transition-all duration-150"
@@ -158,9 +162,10 @@ export default function DashboardSidebar({ role }: SidebarProps) {
 
       {/* Mobile sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-60 z-50 lg:hidden transform transition-transform duration-300 bg-[#13151c] border-r border-white/06 ${
+        className={`fixed top-0 left-0 h-full w-60 z-50 lg:hidden transform transition-transform duration-300 border-r ${
           isMobileOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
+        style={{ background: 'var(--bg-sidebar)', borderColor: 'var(--border)' }}
       >
         <button
           onClick={() => setIsMobileOpen(false)}
@@ -172,7 +177,10 @@ export default function DashboardSidebar({ role }: SidebarProps) {
       </aside>
 
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col fixed top-0 left-0 h-full w-60 bg-[#13151c] border-r border-white/06 z-30">
+      <aside
+        className="hidden lg:flex flex-col fixed top-0 left-0 h-full w-60 z-30 border-r"
+        style={{ background: 'var(--bg-sidebar)', borderColor: 'var(--border)' }}
+      >
         <SidebarContent />
       </aside>
     </>

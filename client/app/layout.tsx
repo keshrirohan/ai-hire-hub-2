@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, DM_Serif_Display, DM_Mono } from 'next/font/google';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -104,29 +105,51 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" dir="ltr">
-      <body className={`${plusJakarta.variable} ${dmSerif.variable} ${dmMono.variable}`}>
-        {children}
-        <Toaster
-          position="top-right"
-          toastOptions={{
-            style: {
-              background: '#1a1d27',
-              color: '#e8e4dc',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '10px',
-              fontFamily: 'var(--font-jakarta)',
-              fontSize: '14px',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-            },
-            success: {
-              iconTheme: { primary: '#6ee7b7', secondary: '#1a1d27' },
-            },
-            error: {
-              iconTheme: { primary: '#fca5a5', secondary: '#1a1d27' },
-            },
+    <html lang="en" dir="ltr" suppressHydrationWarning>
+      <head>
+        {/* Prevent flash-of-wrong-theme before React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('theme');
+                  var theme = (stored === 'dark' || stored === 'light')
+                    ? stored
+                    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch(e) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
+              })();
+            `,
           }}
         />
+      </head>
+      <body className={`${plusJakarta.variable} ${dmSerif.variable} ${dmMono.variable}`}>
+        <ThemeProvider>
+          {children}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                background: 'var(--toast-bg)',
+                color: 'var(--toast-fg)',
+                border: '1px solid var(--toast-border)',
+                borderRadius: '10px',
+                fontFamily: 'var(--font-jakarta)',
+                fontSize: '14px',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+              },
+              success: {
+                iconTheme: { primary: '#6ee7b7', secondary: 'var(--toast-bg)' },
+              },
+              error: {
+                iconTheme: { primary: '#fca5a5', secondary: 'var(--toast-bg)' },
+              },
+            }}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );

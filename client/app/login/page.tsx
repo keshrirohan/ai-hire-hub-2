@@ -9,6 +9,7 @@ import { z } from 'zod';
 import toast from 'react-hot-toast';
 import { Bot, Eye, EyeOff, Loader2, Mail, Lock, ArrowRight } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const loginSchema = z.object({
   email: z.string().email('Please enter a valid email'),
@@ -48,6 +49,10 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen hero-gradient dot-grid flex items-center justify-center p-6">
+      {/* Theme toggle – floating top-right */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle compact />
+      </div>
       <div className="w-full max-w-[400px]">
 
         {/* Wordmark */}

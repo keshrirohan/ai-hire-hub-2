@@ -10,6 +10,7 @@ import toast from 'react-hot-toast';
 import { Bot, Eye, EyeOff, Loader2, User, Briefcase, Mail, Lock, ArrowRight } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
 import { Suspense } from 'react';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const registerSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -61,6 +62,10 @@ function RegisterContent() {
 
   return (
     <div className="min-h-screen hero-gradient dot-grid flex items-center justify-center p-6">
+      {/* Theme toggle – floating top-right */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle compact />
+      </div>
       <div className="w-full max-w-[420px]">
 
         {/* Wordmark */}
